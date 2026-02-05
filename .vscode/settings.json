@@ -1,0 +1,5 @@
+{
+    "[html]": {
+        "editor.defaultFormatter": "Dart-Code.dart-code"
+    }
+}
