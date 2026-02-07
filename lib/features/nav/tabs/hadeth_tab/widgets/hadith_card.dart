@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islami/core/data/hadith_data_list.dart';
 import 'package:islami/features/nav/tabs/hadeth_tab/widgets/hadith_details.dart';
 
 class HadithCard extends StatelessWidget {
@@ -13,7 +14,9 @@ class HadithCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HadithDetails(index: 2)),
+          MaterialPageRoute(
+            builder: (context) => HadithDetails(index: index + 1),
+          ),
         );
       },
       child: Container(
@@ -28,9 +31,7 @@ class HadithCard extends StatelessWidget {
         ),
 
         child: FutureBuilder<String>(
-          future: rootBundle.loadString(
-            'assets/files/Hadeeth/h${index + 1}.txt',
-          ),
+          future: rootBundle.loadString(HadithData.hadithList[index].filePath),
           builder: (context, hadith) {
             // if (snapshot.connectionState == ConnectionState.waiting) {
             //   return const Center(child: CircularProgressIndicator());

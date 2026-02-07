@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/core/app_color.dart';
+import 'package:islami/core/data/sura_name_list.dart';
 
 class SouraDetails extends StatefulWidget {
   final int index;
@@ -34,7 +35,10 @@ class _SouraDetailsState extends State<SouraDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(title: Text("AL-Fatihah"), centerTitle: true),
+      appBar: AppBar(
+        title: Text(SuraName.surahs[widget.index - 1].nameEN),
+        centerTitle: true,
+      ),
       body: Stack(
         children: [
           Center(child: Image.asset("assets/images/Icons/qran_details_bc.png")),
@@ -43,19 +47,25 @@ class _SouraDetailsState extends State<SouraDetails> {
             child: Column(
               children: [
                 Text(
-                  "الفاتحه",
+                  SuraName.surahs[widget.index - 1].nameAR,
                   style: TextStyle(fontSize: 26.sp, color: AppColors.primary),
                 ),
                 SizedBox(height: 20.h),
-                Text(
-                  souraData,
-                  style: TextStyle(
-                    color: AppColors.primary,
-                    fontSize: 20.sp,
-                    wordSpacing: 2.w,
-                    height: 2.h,
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Center(
+                      child: Text(
+                        souraData,
+                        style: TextStyle(
+                          color: AppColors.primary,
+                          fontSize: 20.sp,
+                          wordSpacing: 2.w,
+                          height: 2.h,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ],
             ),

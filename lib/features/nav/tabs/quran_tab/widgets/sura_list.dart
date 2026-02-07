@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islami/core/data/sura_name_list.dart';
 import 'package:islami/features/nav/tabs/quran_tab/widgets/soura_details.dart';
 
 class SuraList extends StatelessWidget {
@@ -28,46 +29,56 @@ class SuraList extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SouraDetails(index: 1),
+                    builder: (context) => SouraDetails(index: index),
                   ),
                 );
               },
-              child: ListTile(
-                leading: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Image.asset("assets/images/Icons/sura_number.png"),
-                    Text(
-                      (index = index + 1).toString(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SouraDetails(index: index),
                     ),
-                  ],
-                ),
-                title: Text(
-                  "Al-Fatiha",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
+                  );
+                },
+                child: ListTile(
+                  leading: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      Image.asset("assets/images/Icons/sura_number.png"),
+                      Text(
+                        (index = index + 1).toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                subtitle: Text(
-                  " Verses  : 7",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                  title: Text(
+                    SuraName.surahs[index - 1].nameEN,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                trailing: Text(
-                  "الفاتحه",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.sp,
-                    color: Colors.white,
+                  subtitle: Text(
+                    "${SuraName.surahs[index - 1].ayatCount} Verses",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  trailing: Text(
+                    SuraName.surahs[index - 1].nameAR,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.sp,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
