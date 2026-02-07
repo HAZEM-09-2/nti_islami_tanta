@@ -1,5 +1,6 @@
 {
     "[html]": {
         "editor.defaultFormatter": "Dart-Code.dart-code"
-    }
+    },
+    "cmake.sourceDirectory": "D:/Training/tanta nti flutter/islami/linux"
 }

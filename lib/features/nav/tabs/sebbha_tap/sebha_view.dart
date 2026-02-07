@@ -59,12 +59,12 @@ class _SebhaViewState extends State<SebhaView> {
                     SizedBox(height: 120.h),
                     Text(
                       sebhaItems[currentSebhaIndex],
-                      style: TextStyle(fontSize: 28, color: Colors.white),
+                      style: TextStyle(fontSize: 36, color: Colors.white),
                     ),
                     SizedBox(height: 20.h),
                     Text(
                       "$sebhaCounter",
-                      style: TextStyle(fontSize: 30, color: Colors.white),
+                      style: TextStyle(fontSize: 36, color: Colors.white),
                     ),
                   ],
                 ),
