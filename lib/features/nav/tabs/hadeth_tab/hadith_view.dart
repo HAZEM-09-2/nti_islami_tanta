@@ -1,4 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islami/features/nav/tabs/hadeth_tab/widgets/hadith_card.dart';
 
 class HadithView extends StatelessWidget {
   const HadithView({super.key});
@@ -7,73 +10,29 @@ class HadithView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 170),
-              Container(
-                height: 565,
-                width: 313,
-                decoration: BoxDecoration(
-                  color: Color(0xffE2BE7F),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 10,
-                      left: 10,
-                      child: Image.asset("assets/images/Icons/left_corner.png"),
-                    ),
-                    Positioned(
-                      top: 10,
-                      right: 10,
-                      child: Image.asset(
-                        "assets/images/Icons/right_corner.png",
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 1,
-                      child: Image.asset("assets/images/Icons/Mosque-02 2.png"),
-                    ),
-                    Center(
-                      child: Image.asset(
-                        "assets/images/Icons/HadithCardBackGround 1.png",
-                      ),
-                    ),
-                    Positioned(
-                      top: 42,
-                      left: 91.6,
-                      child: Text(
-                        "الحديث الاول",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 101.6,
-                      left: 91.6,
-                      child: Text(
-                        ""
-                        "",
-
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 200.h),
+            CarouselSlider.builder(
+              itemCount: 50,
+              itemBuilder: (context, index, realIndex) {
+                return SizedBox(
+                  width: 320.w,
+                  child: HadithCard(index: index),
+                );
+              },
+              options: CarouselOptions(
+                height: 625.h,
+                viewportFraction: 0.75,
+                enlargeCenterPage: true,
+                enlargeFactor: .2,
+                enableInfiniteScroll: true,
+                autoPlay: false,
+                scrollPhysics: const BouncingScrollPhysics(),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

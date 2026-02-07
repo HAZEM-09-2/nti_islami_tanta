@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islami/core/app_color.dart';
 
 class SuraSearch extends StatelessWidget {
   const SuraSearch({super.key});
@@ -18,12 +19,12 @@ class SuraSearch extends StatelessWidget {
 
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide(color: Color(0xffE2BE7F)),
+            borderSide: BorderSide(color: AppColors.primary),
           ),
 
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide(color: Color(0xffE2BE7F)),
+            borderSide: BorderSide(color: AppColors.primary),
           ),
           
         ),

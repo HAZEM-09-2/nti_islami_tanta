@@ -21,10 +21,19 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       minTextAdapt: true,
       child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: "Janna",
+          appBarTheme: AppBarTheme(
+            backgroundColor: Color(0xff212121),
+            iconTheme: IconThemeData(color: Color(0xffE2BE7F)),
+            titleTextStyle: TextStyle(
+              color: Color(0xffE2BE7F),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
         debugShowCheckedModeBanner: false,
-        // routes: {
-        //   '/home': (context) =>  HomeView(),
-        // },
         home: HomeView(),
       ),
     );
